@@ -10,14 +10,16 @@ body{
 #container{
     color: #a7a19f;
     width: 350px;
-    height: 90vh;
+    height: 85vh;
+    background: url("https://images.unsplash.com/photo-1732139594992-d1da351d5a25?q=80&w=1611&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/cover;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 24px;
-    padding: 20px;
-    border: solid 1px #ccc;
+    padding: 10px;
+    padding-top: 40px;
+    border: solid .1px #ccc;
 }
 
 #profile{
@@ -26,6 +28,15 @@ body{
     align-items: center;
     font-size: medium;
     color: #fff;
+    border: .5px solid #dadada63;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 10px;
+    #student-name{
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
 }
 #profile-pic{
     width: 100px;
