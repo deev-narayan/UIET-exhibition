@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins';
+    background-color: #383333;
+}
+#container{
+    color: #a7a19f;
+    width: 350px;
+    height: 90vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 24px;
+    padding: 20px;
+    border: solid 1px #ccc;
+}
+
+#profile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: medium;
+    color: #fff;
+}
+#profile-pic{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+
+    img{
+        width: 90%;
+        height: 90%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
