@@ -11,7 +11,7 @@ body{
 }
 #container{
     color: #a7a19f;
-    width: 100vw;
+    width: 360px;
     height: 100vh;
     background: url("https://images.unsplash.com/photo-1732139594992-d1da351d5a25?q=80&w=1611&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/cover;
     position: absolute;
@@ -29,7 +29,7 @@ body{
     font-size: medium;
     color: #fff;
     border: .5px solid #dadada63;
-    background: transparent;
+    background: #ffffff10;
     backdrop-filter: blur(10px);
     border-radius: 24px;
     padding: 10px;
@@ -70,7 +70,7 @@ body{
     padding: 5px;
     color: #fff;
     border-radius: 24px;
-    background: transparent;
+    background: #ffffff10;
     backdrop-filter: blur(10px);
     border: .5px solid #dadada63;
     #present{
@@ -79,4 +79,15 @@ body{
         max-width:600px;
         filter: drop-shadow(0 0 23px #ffffff7a);
     }
+}
+#myChart{
+    background: #ffffff10;
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    border: 1px solid #dadada63;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    filter: drop-shadow(0 0 23px #feffc357);
+    width: 100%;
 }
