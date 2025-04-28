@@ -32,7 +32,7 @@ body{
     background: #ffffff10;
     backdrop-filter: blur(10px);
     border-radius: 24px;
-    padding: 10px;
+    padding: 10px 25px;
     #student-name{
         font-size: 1.5rem;
         font-weight: 600;
@@ -49,7 +49,9 @@ body{
     width: 100px;
     height: 100px;
     border-radius: 50%;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
     img{
         width: 90%;
         height: 90%;
