@@ -7,49 +7,52 @@ body{
     font-family: 'Poppins';
     height: 100vh;
     width: 100vw;
-    background: #000;
-}
-#container{
-    color: #a7a19f;
-    width: 360px;
-    height: 100vh;
+    position: relative;
     background: url("https://images.unsplash.com/photo-1732139594992-d1da351d5a25?q=80&w=1611&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/cover;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    padding-top: 40px;
 }
 
 #profile{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    height: 5rem;
+    z-index: 999;
     font-size: medium;
     color: #fff;
-    border: .5px solid #dadada63;
+    border-bottom: .5px solid #dadada63;
     background: #ffffff10;
     backdrop-filter: blur(10px);
-    border-radius: 24px;
-    padding: 10px;
+    padding: 5px 20px;
+    #for{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
     #student-name{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: 600;
         opacity: .6;
     }
     p{
         margin-top: 3px;
-        font-size: .9rem;
+        font-size: .7rem;
         font-weight: 300;
+        opacity: .6;
+    }
+    i{
+        font-size: 2rem;
         opacity: .6;
     }
 }
 #profile-pic{
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
     img{
         width: 90%;
         height: 90%;
@@ -61,6 +64,13 @@ body{
             transform: scale(1.1);
         }
     }
+}
+#container{
+    color: #a7a19f;
+    width: 360px;
+    margin: auto;
+    padding: 20px;
+    padding-top: 40px;
 }
 #attendance{
     display: flex;
@@ -90,4 +100,13 @@ body{
     padding-right: 20px;
     filter: drop-shadow(0 0 23px #feffc357);
     width: 100%;
+}
+#validate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: .5rem;
+    button{
+        padding: .6rem 1rem;
+    }
 }
