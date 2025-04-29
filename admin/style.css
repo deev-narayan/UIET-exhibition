@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+.mainsection{
+    display: flex;
+    height: calc(100vh - (24px + 1.6rem));
+}
+.side{
+    padding: 10px 0px ;
+    display: flex;
+    flex-direction: column;
+    min-width: 270px;
+    height: 100%;
+    background-color: rgba(131, 255, 114, 0.959);
+
+    ul{
+        li{
+            list-style-type: none;
+            padding: 10px 10px;
+            font-size: 1.2rem;
+        }
+        .active{
+            background-color: rgba(73, 173, 60, 0.959);
+                }
+    }
+}
+.header{
+    padding:12px 20px;
+    font-size: 1.6rem;
+    background-color: rgba(3, 60, 3, 0.959);
+    color: rgb(196, 255, 189);
+
+    
+}
+.maincont{
+    width: calc(100vw - 270px) ;
+    height: 100%;
+    padding: 10px 15px;
+    .surinfo{
+        .infochild{
+            
+        }
+    }
+}
