@@ -16,14 +16,15 @@ body{
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 5rem;
+
     z-index: 999;
     font-size: medium;
     color: #fff;
     border-bottom: .5px solid #dadada63;
     background: #ffffff10;
     backdrop-filter: blur(10px);
-    padding: 5px 20px;
+    padding: 10px 20px;
+
     #for{
         display: flex;
         flex-direction: row;
@@ -31,9 +32,12 @@ body{
         gap: 1rem;
     }
     #student-name{
-        font-size: 1.2rem;
+
+        font-size: 1.1rem;
         font-weight: 600;
         opacity: .6;
+        margin-top: 0;
+
     }
     p{
         margin-top: 3px;
@@ -50,10 +54,17 @@ body{
         font-size: 2rem;
         opacity: .6;
     }
+    div{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+    }
 }
 #profile-pic{
-    width: 70px;
-    height: 70px;
+    width: 45px;
+    height: 45px;
+
     border-radius: 50%;
     display: flex;
     align-items: center;
