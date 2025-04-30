@@ -42,7 +42,7 @@ const xValues = ["Present", "Absent"];
   
   var xValue = ["ES-101", "BS-102", "BS-201", "MNC-101", "HSMC-101"];
   var yValue = [90, 85, 76, 98, 65, 0];
-  var barColor = ["#145239", "#1F6B4D","#2E8B57","#3FA26D","50C878"];
+  var barColor = ["#145239", "#1F6B4D","#2E8B57","#3FA26D","#50C878"];
 
   new Chart("myChart", {
     type: "bar",
