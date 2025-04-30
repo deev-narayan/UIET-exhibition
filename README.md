@@ -1,4 +1,4 @@
 # UIET-exhibition
  Topic : Student Attendance Management System Project
-
-![screenshot](https://user-images.githubusercontent.com/12345678/abcdefg.png)
+## App Screenshot
+![App Screenshot](https://user-images.githubusercontent.com/1234567/abc12345.png)
