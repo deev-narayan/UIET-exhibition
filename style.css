@@ -181,3 +181,36 @@ body{
         color: #fff;
     }
 }
+#details{
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 24px;
+    background: #ffffff10;
+    backdrop-filter: blur(10px);
+    border: .5px solid #dadada63;
+    margin: 20px auto;
+    width: 320px;
+    #Time,#day,#running_class{
+        filter: drop-shadow(0 0 23px #07e48f);
+        opacity: .8;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    #running_class{
+        font-size: 1rem;
+        padding-top: 10px;
+        font-weight: 500;
+        color: #07e48f;
+    }
+        #running_class::before{
+            content: 'Running Class: ';
+            font-size: .7rem;
+            font-weight: 300;
+            color: #fff;
+        }
+    }
