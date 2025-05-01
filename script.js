@@ -13,7 +13,7 @@ menu.addEventListener("click", () => {
 });
 
 const xValues = ["Present", "Absent"];
-  const yValues = [0, 0];
+  const yValues = [79, 21];
   const barColors = [
     "#50C878",
     "#145239",
@@ -34,25 +34,8 @@ const xValues = ["Present", "Absent"];
       cutoutPercentage: 70 // Adjusts the thickness of the doughnut
     }
   });
-  let presentValue = 0;
-  let absentValue = 0;
 
-  function animateChart() {
-    if (presentValue < 79) {
-      presentValue++;
-      chart.data.datasets[0].data[0] = presentValue;
-    } else if (absentValue < 21) {
-      absentValue++;
-      chart.data.datasets[0].data[1] = absentValue;
-    }
-    chart.update();
 
-    if (presentValue < 55 || absentValue < 45) {
-      requestAnimationFrame(animateChart);
-    }
-  }
-
-  window.onload = animateChart; 
   
   var xValue = ["ES-101", "BS-102", "BS-201", "MNC-101", "HSMC-101"];
   var yValue = [90, 85, 76, 98, 65, 0];
@@ -96,56 +79,53 @@ const xValues = ["Present", "Absent"];
 
   const timetable = {
     "Monday": {
-      "9:30AM-10:30AM": ["MNC-101", "UIET-002"],
-      "10:30AM-11:30AM": ["BS-102 P G1 (RS)", "ES-101 P G2 (SS)", "ES-102 P G3", "ES-103 P G4"],
-      "11:30AM-12:30PM": ["HSMC-101"],
-      "12:30PM-01:30PM": ["HSMC-101"],
-      "01:30PM-02:30PM": [],
-      "02:30PM-03:30PM": ["BS-102"],
-      "03:30PM-04:30PM": ["BS-201"],
-      "04:30PM-05:30PM": ["BS-102 T (AK) (G3+G4)", "Library (G1+G2)"]
+      "09:30": ["MNC-101", "UIET-002"],
+      "10:30": ["BS-102 P G1 (RS)", "ES-101 P G2 (SS)", "ES-102 P G3", "ES-103 P G4"],
+      "12:30": ["HSMC-101"],
+      "13:30": ["Lunch"],
+      "14:30": ["BS-102"],
+      "15:30": ["BS-201"],
+      "16:30": ["BS-102 T (AK) (G3+G4)", "Library (G1+G2)"]
     },
     "Tuesday": {
-      "9:30AM-10:30AM": ["MNC-101", "UIET-002"],
-      "10:30AM-11:30AM": ["HSMC-101"],
-      "11:30AM-12:30PM": ["BS-102 P G2 (RS)", "ES-101 P G1 (SS)", "ES-102 P G4", "ES-103 P G3"],
-      "12:30PM-01:30PM": [],
-      "01:30PM-02:30PM": [],
-      "02:30PM-03:30PM": ["BS-102"],
-      "03:30PM-04:30PM": ["BS-201"],
-      "04:30PM-05:30PM": ["ES-101"]
+      "09:30": ["MNC-101", "UIET-002"],
+      "10:30": ["HSMC-101"],
+      "11:30": ["BS-102 P G2 (RS)", "ES-101 P G1 (SS)", "ES-102 P G4", "ES-103 P G3"],
+      "13:30": ["Lunch"],
+      "14:30": ["BS-102"],
+      "15:30": ["BS-201"],
+      "16:30": ["ES-101"]
     },
     "Wednesday": {
-      "9:30AM-10:30AM": ["BS-201", "UIET-002"],
-      "10:30AM-11:30AM": ["HSMC-101"],
-      "11:30AM-12:30PM": ["BS-102 P G3 (AK)", "ES-101 P G4", "ES-102 P G2", "ES-103 P G1"],
-      "12:30PM-01:30PM": [],
-      "01:30PM-02:30PM": [],
-      "02:30PM-03:30PM": ["CC-101"],
-      "03:30PM-04:30PM": ["ES-101"],
-      "04:30PM-05:30PM": ["ES-101 T (G3+G4)", "Library (G1+G2)"]
+      "09:30": ["BS-201", "UIET-002"],
+      "10:30": ["HSMC-101"],
+      "11:30": ["BS-102 P G3 (AK)", "ES-101 P G4", "ES-102 P G2", "ES-103 P G1"],
+      "13:30": ["Lunch"],
+      "14:30": ["CC-101"],
+      "15:30": ["ES-101"],
+      "16:30": ["ES-101 T (G3+G4)", "Library (G1+G2)"]
     },
     "Thursday": {
-      "9:30AM-10:30AM": ["BS-102 T (G1+G2) (AK)", "Library (G3+G4)"],
-      "10:30AM-11:30AM": ["HSMC-101"],
-      "11:30AM-12:30PM": ["ES-101"],
-      "12:30PM-01:30PM": ["ES-101 T (G1+G2)", "Library (G3+G4)"],
-      "01:30PM-02:30PM": [],
-      "02:30PM-03:30PM": ["BS-201"],
-      "03:30PM-04:30PM": ["ES-101"],
-      "04:30PM-05:30PM": ["BS-201 T (G3+G4)", "Library (G1+G2)"]
+      "09:30": ["BS-102 T (G1+G2) (AK)", "Library (G3+G4)", "UIET-002"],
+      "10:30": ["HSMC-101"],
+      "11:30": ["ES-101"],
+      "12:30": ["ES-101 T (G1+G2)", "Library (G3+G4)"],
+      "13:30": ["Lunch"],
+      "14:30": ["BS-201"],
+      "15:30": ["ES-101"],
+      "16:30": ["BS-201 T (G3+G4)", "Library (G1+G2)"]
     },
     "Friday": {
-      "9:30AM-10:30AM": ["BS-102 P G4 (AK)", "ES-101 P G3", "ES-102 P G1", "ES-103 P G2"],
-      "10:30AM-11:30AM": ["CC-101"],
-      "11:30AM-12:30PM": ["BS-102"],
-      "12:30PM-01:30PM": [],
-      "01:30PM-02:30PM": ["BS-102"],
-      "02:30PM-03:30PM": ["BS-102"],
-      "03:30PM-04:30PM": ["BS-201 T (G1+G2)", "Library (G3+G4)"],
-      "04:30PM-05:30PM": ["Library"]
+      "09:30": ["BS-102 P G4 (AK)", "ES-101 P G3", "ES-102 P G1", "ES-103 P G2"],
+      "11:30": ["CC-101"],
+      "12:30": ["BS-102"],
+      "13:30": ["Lunch"],
+      "14:30": ["BS-102"],
+      "15:30": ["BS-201 T (G1+G2)", "Library (G3+G4)"],
+      "16:30": ["Library"]
     }
   };
+  
   function generateTimetableForDay(day) {
     const daySchedule = timetable[day];
     if (!daySchedule) {
@@ -155,7 +135,8 @@ const xValues = ["Present", "Absent"];
 
     let timetableHTML = `<h3>Timetable for ${day}</h3><table>`;
     timetableHTML += `<tr><th>Time Slot</th><th>Classes</th></tr>`;
-
+    console.log(daySchedule);
+  
     for (const [timeSlot, classes] of Object.entries(daySchedule)) {
       timetableHTML += `<tr><td>${timeSlot}</td><td>${classes.length > 0 ? classes.join(", ") : "Free"}</td></tr>`;
     }
@@ -198,20 +179,8 @@ const xValues = ["Present", "Absent"];
 
     let runningClass = document.querySelector("#running_class");
     function getClassAtTime(day, time24) {
-      const daySchedule = timetable[day];
-      if (!daySchedule) return null;
-    
-      for (const [timeRange, classes] of Object.entries(daySchedule)) {
-        const [startTime, endTime] = timeRange.split("-");
-        const start = new Date(`1970-01-01T${convertTo24Hour(startTime)}:00`);
-        const end = new Date(`1970-01-01T${convertTo24Hour(endTime)}:00`);
-        const current = new Date(`1970-01-01T${time24}:00`);
-    
-        if (current >= start && current < end) {
-          return classes;
-        }
-      }
-      return null;
+      var todaySchedule = timetable[day];
+      if (!todaySchedule) return [];
     }
     
     function convertTo24Hour(time) {
