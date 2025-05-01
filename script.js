@@ -151,40 +151,42 @@ const xValues = ["Present", "Absent"];
     today.innerHTML = day;
 
     let runningClass = document.querySelector("#running_class");
-    if (runningClass) {
-      const currentClass = getClassAtTime(day, hours + ":" + minutes + " " + session);
-      runningClass.innerHTML = Array.isArray(currentClass) && currentClass.length > 0 ? currentClass.join(", ") : "No class running";
-    }
-  
-  function getClassAtTime(day, time) {
-    const daySchedule = timetable[day];
-    if (!daySchedule) return null;
-  
-    for (const [timeRange, classes] of Object.entries(daySchedule)) {
-      const [startTime, endTime] = timeRange.split("-");
-      const start = new Date(`1970-01-01T${convertTo24Hour(startTime)}`);
-      const end = new Date(`1970-01-01T${convertTo24Hour(endTime)}`);
-      const current = new Date(`1970-01-01T${convertTo24Hour(time)}`);
-  
-      if (current >= start && current <= end) {
-        return classes;
+    function getClassAtTime(day, time24) {
+      const daySchedule = timetable[day];
+      if (!daySchedule) return null;
+    
+      for (const [timeRange, classes] of Object.entries(daySchedule)) {
+        const [startTime, endTime] = timeRange.split("-");
+        const start = new Date(`1970-01-01T${convertTo24Hour(startTime)}:00`);
+        const end = new Date(`1970-01-01T${convertTo24Hour(endTime)}:00`);
+        const current = new Date(`1970-01-01T${time24}:00`);
+    
+        if (current >= start && current < end) {
+          return classes;
+        }
       }
+      return null;
     }
-    return null;
-  }
-  
-  function convertTo24Hour(time) {
-    const [hours, minutes] = time.slice(0, -2).split(":");
-    const period = time.slice(-2);
-    let hour = parseInt(hours, 10);
-    if (period === "PM" && hour !== 12) hour += 12;
-    if (period === "AM" && hour === 12) hour = 0;
-    return `${hour.toString().padStart(2, "0")}:${minutes}`;
-  }
-  const currentDay = day;
-  const currentTime = hours + ":" + minutes;
-  const currentClass = getClassAtTime(currentDay, currentTime);
-  runningClass.innerHTML = currentClass;
+    
+    function convertTo24Hour(time) {
+      const [raw, period] = time.match(/(\d{1,2}:\d{2})(AM|PM)/).slice(1, 3);
+      let [hours, minutes] = raw.split(":").map(Number);
+      if (period === "PM" && hours !== 12) hours += 12;
+      if (period === "AM" && hours === 12) hours = 0;
+      return `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}`;
+    }
+    
+    // Example DOM interaction
+    hours = new Date().getHours().toString().padStart(2, "0");
+    minutes = new Date().getMinutes().toString().padStart(2, "0");
+    const currentTime = `${hours}:${minutes}`;
+    // HTML element
+    if (runningClass) {
+      const currentClass = getClassAtTime(day, currentTime);
+      runningClass.innerHTML = Array.isArray(currentClass) && currentClass.length > 0
+        ? currentClass.join(", ")
+        : "No class running";
+    }
   }
 
   setInterval(updateTime, 1000);
