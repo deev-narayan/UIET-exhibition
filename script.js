@@ -100,8 +100,8 @@ const xValues = ["Present", "Absent"];
       "04:30PM-05:30PM": ["ES-101 T (G3+G4)", "Library (G1+G2)"]
     },
     "Thursday": {
-      "9:30AM-10:30AM": ["BS-102 T (G1+G2) (AK)", "Library (G3+G4)"],
-      "10:30AM-11:30AM": ["HSMC-101"],
+      "930": ["BS-102 T (G1+G2) (AK)", "Library (G3+G4)"],
+      "1030": ["HSMC-101"],
       "11:30AM-12:30PM": ["ES-101"],
       "12:30PM-01:30PM": ["ES-101 T (G1+G2)", "Library (G3+G4)"],
       "01:30PM-02:30PM": [],
@@ -152,7 +152,7 @@ const xValues = ["Present", "Absent"];
 
     let runningClass = document.querySelector("#running_class");
     if (runningClass) {
-      const currentClass = getClassAtTime(day, hours + ":" + minutes + " " + session);
+      const currentClass = getClassAtTime(day, hours + ":" + minutes + "" + session);
       runningClass.innerHTML = Array.isArray(currentClass) && currentClass.length > 0 ? currentClass.join(", ") : "No class running";
     }
   
