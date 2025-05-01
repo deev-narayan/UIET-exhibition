@@ -1,11 +1,13 @@
-let menu = document.querySelector("#hamburger");
+let menu = document.querySelector("#hamburgicon");
 let rutein = document.querySelector("#timetablefortoday");
 menu.addEventListener("click", () => {
   if(document.querySelector("#side-menu").style.display === "flex") {
     document.querySelector("#side-menu").style.display = "none";
-    menu.classList.remove("ri-menu-2-line");
-    menu.classList.add("ri-close-large-line")
+    menu.classList.add("ri-menu-2-line");
+    menu.classList.remove("ri-close-large-line");
   }else{
+    menu.classList.remove("ri-menu-2-line");
+    menu.classList.add("ri-close-large-line");
     document.querySelector("#side-menu").style.display = "flex";
   }
 });
