@@ -1,3 +1,13 @@
+let menu = document.querySelector("i");
+let retu = document.querySelector("#return");
+menu.addEventListener("click", () => {
+  document.querySelector("#side-menu").style.display = "flex";
+});
+retu.addEventListener("click", () => {
+  document.querySelector("#side-menu").style.display = "none";
+}
+);
+
 const xValues = ["Present", "Absent"];
   const yValues = [0, 0];
   const barColors = [
@@ -160,7 +170,7 @@ const xValues = ["Present", "Absent"];
         return classes;
       }
     }
-    return "No any class is running";
+    return "No class running";
   }
   
   function convertTo24Hour(time) {
@@ -171,10 +181,8 @@ const xValues = ["Present", "Absent"];
     if (period === "AM" && hour === 12) hour = 0;
     return `${hour.toString().padStart(2, "0")}:${minutes}`;
   }
-  
-  // Example usage:
-  const currentDay = day; // Replace with dynamic day if needed
-  const currentTime = hours + ":" + minutes; // Replace with dynamic time if needed
+  const currentDay = day;
+  const currentTime = hours + ":" + minutes;
   const currentClass = getClassAtTime(currentDay, currentTime);
   runningClass.innerHTML = currentClass;
   }

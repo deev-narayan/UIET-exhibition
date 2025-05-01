@@ -52,8 +52,10 @@ body{
         color: #07e48f;
     }
     i{
-        font-size: 2rem;
+        font-size: 1.5rem;
+        font-weight: 200;
         opacity: .6;
+        cursor: pointer;
     }
     div{
         display: flex;
@@ -116,6 +118,11 @@ body{
     filter: drop-shadow(0 0 23px #feffc357);
     width: 100%;
 }
+@property --angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
 #validate{
     display: flex;
     justify-content: center;
@@ -129,59 +136,33 @@ body{
         background: #000;
         color: #fff;
         font-size: .8rem;
-        font-weight: 300;
+        font-weight: 400;
         border-radius: 10px;
+    }
+    #button:hover{
+        color: #07e48f;
+        font-weight: 400;
+        transition: 1s;
     }
     #button::after, #button::before{
         content: '';
         position: absolute;
         height: 100%;
         width: 100%;
-        background: linear-gradient(#145239, #1F6B4D, #2E8B57,#3FA26D,#50C878,#145239);
+        background: conic-gradient(from var(--angle) ,#145239, #1F6B4D, #2E8B57,#3FA26D,#50C878,#145239);
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: -1;
-        padding: 1px;
+        padding: 2px;
         border-radius: 10px;
+        animation: 3s spin linear infinite;
     }
     #button::before{
         opacity: .5;
         filter: blur(1.5rem);
     }
 }   
-#class-schedule{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 320px;
-    margin: 20px auto;
-    color: #fff;
-    border-radius: 24px;
-    background: #ffffff10;
-    backdrop-filter: blur(10px);
-    border: .5px solid #dadada63;
-    #class{
-        margin: auto;
-        width:80%;
-        max-width:600px;
-        filter: drop-shadow(0 0 23px #ffffff7a);
-    }
-    #class-list{
-        width: 100%;
-    }
-    table{
-        width: 100%;
-        padding: 10px;
-    }
-    tr{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 5px;
-        color: #fff;
-    }
-}
 #details{
     color: #fff;
     display: flex;
@@ -195,7 +176,7 @@ body{
     backdrop-filter: blur(10px);
     border: .5px solid #dadada63;
     margin: 20px auto;
-    width: 320px;
+    width: 100%;
     #Time,#day,#running_class{
         filter: drop-shadow(0 0 23px #07e48f);
         opacity: .8;
@@ -209,9 +190,36 @@ body{
         color: #07e48f;
     }
         #running_class::before{
-            content: 'Running Class: ';
+            content: '';
             font-size: .7rem;
             font-weight: 300;
             color: #fff;
         }
     }
+#side-menu{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px 30px;
+    width: 360px;
+    height: 100%;
+    background: #000000e8;
+    backdrop-filter: blur(10px);
+    z-index: 998;
+    display: none;
+    opacity: .8;
+}
+#return{
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+@keyframes spin {
+    0%{
+        --angle: 0deg;
+    }
+    100%{
+        --angle: 360deg;
+    }
+}
