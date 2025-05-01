@@ -11,8 +11,8 @@ retu.addEventListener("click", () => {
 const xValues = ["Present", "Absent"];
   const yValues = [0, 0];
   const barColors = [
-    "mediumseagreen",
-    "white"
+    "#145239",
+    "#50C878",
   ];
 
   const chart = new Chart("present", {
@@ -34,10 +34,10 @@ const xValues = ["Present", "Absent"];
   let absentValue = 0;
 
   function animateChart() {
-    if (presentValue < 55) {
+    if (presentValue < 79) {
       presentValue++;
       chart.data.datasets[0].data[0] = presentValue;
-    } else if (absentValue < 45) {
+    } else if (absentValue < 21) {
       absentValue++;
       chart.data.datasets[0].data[1] = absentValue;
     }
@@ -59,10 +59,32 @@ const xValues = ["Present", "Absent"];
     data: {
       labels: xValue,
       datasets: [{
+        label: "subject wise attendance",
         backgroundColor: barColor,
         data: yValue
       }]
     },
+    options: {
+      plugins: {
+        legend: {
+          labels: {
+            color: 'red' // This will change the legend (label) color
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: {
+            color: 'white' // Optional: X-axis label color
+          }
+        },
+        y: {
+          ticks: {
+            color: 'white' // Optional: Y-axis label color
+          }
+        }
+      }
+    }
 
   });
 
@@ -191,3 +213,21 @@ const xValues = ["Present", "Absent"];
 
   setInterval(updateTime, 1000);
   updateTime();
+
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  }
+  else {
+    alert("Geolocation is not supported by this browser.");
+  } 
+  function showPosition(position) {
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    var location = lat + "," + lon;
+    document.getElementById("location").innerHTML = "Location: " + location;     // Here you can send the location to your server or use it as needed
+  }
+
+  function markattendence() {
+   
+  }
+markattendence();
