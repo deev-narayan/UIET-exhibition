@@ -1,8 +1,10 @@
-let menu = document.querySelector("i");
+let menu = document.querySelector("#hamburger");
 let rutein = document.querySelector("#timetablefortoday");
 menu.addEventListener("click", () => {
   if(document.querySelector("#side-menu").style.display === "flex") {
     document.querySelector("#side-menu").style.display = "none";
+    menu.classList.remove("ri-menu-2-line");
+    menu.classList.add("ri-close-large-line")
   }else{
     document.querySelector("#side-menu").style.display = "flex";
   }
@@ -234,12 +236,12 @@ const xValues = ["Present", "Absent"];
   setInterval(updateTime, 1000);
   updateTime();
 
-  if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  }
-  else {
-    alert("Geolocation is not supported by this browser.");
-  } 
+  // if(navigator.geolocation) {
+  //   navigator.geolocation.getCurrentPosition(showPosition);
+  // }
+  // else {
+  //   alert("Geolocation is not supported by this browser.");
+  // } 
   function showPosition(position) {
     var lat = position.coords.latitude;
     var lon = position.coords.longitude;
