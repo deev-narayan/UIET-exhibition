@@ -1,18 +1,18 @@
 let menu = document.querySelector("i");
-let retu = document.querySelector("#return");
+let rutein = document.querySelector("#timetablefortoday");
 menu.addEventListener("click", () => {
-  document.querySelector("#side-menu").style.display = "flex";
+  if(document.querySelector("#side-menu").style.display === "flex") {
+    document.querySelector("#side-menu").style.display = "none";
+  }else{
+    document.querySelector("#side-menu").style.display = "flex";
+  }
 });
-retu.addEventListener("click", () => {
-  document.querySelector("#side-menu").style.display = "none";
-}
-);
 
 const xValues = ["Present", "Absent"];
   const yValues = [0, 0];
   const barColors = [
-    "#145239",
     "#50C878",
+    "#145239",
   ];
 
   const chart = new Chart("present", {
@@ -142,6 +142,26 @@ const xValues = ["Present", "Absent"];
       "04:30PM-05:30PM": ["Library"]
     }
   };
+  function generateTimetableForDay(day) {
+    const daySchedule = timetable[day];
+    if (!daySchedule) {
+      rutein.innerHTML = `<p>No timetable available for ${day}</p>`;
+      return;
+    }
+
+    let timetableHTML = `<h3>Timetable for ${day}</h3><table>`;
+    timetableHTML += `<tr><th>Time Slot</th><th>Classes</th></tr>`;
+
+    for (const [timeSlot, classes] of Object.entries(daySchedule)) {
+      timetableHTML += `<tr><td>${timeSlot}</td><td>${classes.length > 0 ? classes.join(", ") : "Free"}</td></tr>`;
+    }
+
+    timetableHTML += `</table>`;
+    rutein.innerHTML = timetableHTML;
+  }
+
+  const currentDay = new Date().toLocaleString("en-US", { weekday: "long" });
+  generateTimetableForDay(currentDay);
 
   let today = document.querySelector("#day");
   function updateTime() {
