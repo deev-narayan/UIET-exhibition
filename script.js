@@ -170,7 +170,7 @@ const xValues = ["Present", "Absent"];
         return classes;
       }
     }
-    return "No class running";
+    return null;
   }
   
   function convertTo24Hour(time) {
