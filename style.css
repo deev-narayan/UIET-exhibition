@@ -47,8 +47,9 @@ body{
     }
     #student-id{
         font-size: .7rem;
-        font-weight: 300;
-        opacity: .4;
+        font-weight: 500;
+        opacity: 1;
+        color: #07e48f;
     }
     i{
         font-size: 2rem;
@@ -85,7 +86,7 @@ body{
     color: #a7a19f;
     width: 360px;
     margin: auto;
-    padding: 20px;
+    padding: 10px;
 }
 #attendance{
     display: flex;
