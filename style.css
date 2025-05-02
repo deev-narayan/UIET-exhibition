@@ -5,9 +5,10 @@
 }
 body{
     font-family: 'Poppins';
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     position: relative;
+    overflow-x: hidden;
     background: linear-gradient(45deg,white,#50C878);
     /* background: url("https://images.unsplash.com/photo-1732139594992-d1da351d5a25?q=80&w=1611&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/cover; */
 }
@@ -50,7 +51,7 @@ body{
         font-size: .7rem;
         font-weight: 500;
         opacity: 1;
-        color: #07e48f;
+        color: #145239;
     }
     i{
         font-size: 1.5rem;
@@ -66,9 +67,10 @@ body{
     }
 }
 #profile-pic{
-    width: 45px;
-    height: 45px;
-
+    width: 60px;
+    height: 60px;
+    background: #00000010;
+    padding: 1px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -78,7 +80,8 @@ body{
         height: 90%;
         border-radius: 50%;
         object-fit: cover;
-        filter: drop-shadow(0 0 23px #0000007a);
+        margin: auto;
+        border: .1px solid #145239;
         transition: all 0.3s ease-in-out;
         &:hover{
             transform: scale(1.1);
@@ -103,29 +106,28 @@ body{
     background: #00000010;
     backdrop-filter: blur(20px);
     border: .5px solid #dadada63;
-    margin: 20px auto;
+    margin: auto;
     width: 100%;
     #hima{
         width: 300px;
+        z-index: 909;
     }
     #status-run{
         padding-top: 10px;
         font-size: .7rem;
         opacity: .6;
-        font-weight: 300;
-        filter: drop-shadow(0 0 5px #000);
+        font-weight: 500;
     }
     #Time,#day,#running_class{
-        filter: drop-shadow(0 0 5px #000000);
         opacity: .8;
         font-size: 1rem;
         font-weight: 600;
     }
     #running_class{
-        width: 50%;
+        width: 100%;
         font-size: 1rem;
         font-weight: 500;
-        color: #00ff9d;
+        color: #145239;
     }
         #running_class::before{
             content: '';
@@ -138,7 +140,7 @@ body{
     width: 150px;
     z-index: 0;
     position: relative;
-    right: -50px;
+    right: -40px;
     #present{
         margin: auto;
         filter: drop-shadow(0 0 23px #0000007a);
@@ -149,7 +151,7 @@ body{
     backdrop-filter: blur(10px);
     border-radius: 24px;
     border: 1px solid #dadada63;
-    margin-top: 20px;
+    margin-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
     filter: drop-shadow(0 0 23px #feffc357);
@@ -167,6 +169,7 @@ body{
     margin-top: .5rem;
     #button{
         cursor: pointer;
+        margin-top: 15px;
         padding: .6rem 1rem;
         height: 100%;
         position: relative;
@@ -191,7 +194,7 @@ body{
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: -1;
-        padding: 2px;
+        padding: 3px;
         border-radius: 10px;
         animation: 3s spin linear infinite;
     }
@@ -221,35 +224,33 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
     padding: 20px;
     border-radius: 24px;
+    border-bottom: .5px solid #dadada63;
+    background: #00000010;
     backdrop-filter: blur(10px);
-    border: .5px solid #dadada63;
-    margin-top: 20px;
+    margin-top: 24px;
     width: 100%;
     color: #000;
     h3{
-        color: #07e48f;
-        font-weight: 300;
-    }
-    tr{
-        margin-top: .5rem;
+        color: #145239;
+        font-weight: 400;
+        font-size: .8rem;
     }
     th{
+        font-size: .6rem;
         opacity: .3;
-        font-weight: 400;
+        font-weight: 300;
     }
     td{
-        filter: drop-shadow(0 0 2px #229163);
         padding: 5px;
         margin: 5px;
-        font-size: .8rem;
+        font-size: .7rem;
         font-weight: 400;
         color: #000;
         text-align: center;
         border-radius: 10px;
-        background: #0000002c;
+        background: transparent;
         backdrop-filter: blur(10px);
         border: .5px solid #dadada63;
     }

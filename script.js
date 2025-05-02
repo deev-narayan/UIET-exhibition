@@ -136,7 +136,7 @@ const xValues = ["Present", "Absent"];
     }
 
     let timetableHTML = `<h3>Timetable for ${day}</h3><table>`;
-    timetableHTML += `<tr><th>Time Slot</th><th>Classes</th></tr>`;
+    timetableHTML += `<tr><th>Timing</th><th>Classes</th></tr>`;
     console.log(daySchedule);
   
     for (const [timeSlot, classes] of Object.entries(daySchedule)) {
