@@ -12,47 +12,47 @@ rel="stylesheet"/>
 
 </head>
 <body>
-    <div id="profile">
-        <div id="for">
-            <div id="profile-pic">
-                <img src="https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Profile Picture">
-            </div>   
-            <div>
-                <p id="student-name">Divyansh Kumar <span id="student-id">ID: 2409043</span></p>
-                <p id="student-class">B.tech (CSE) 2nd sem</p>
+    <div id="slide">
+        <div id="profile">
+            <div id="for">
+                <div id="profile-pic">
+                    <img src="https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Profile Picture">
+                </div>   
+                <div>
+                    <p id="student-name">Divyansh Kumar <span id="student-id">ID: 2409043</span></p>
+                    <p id="student-class">B.tech (CSE) 2nd sem</p>
+                </div>
             </div>
+            <i id="hamburgicon" class="ri-menu-2-line"></i>
         </div>
-        <i id="hamburgicon" class="ri-menu-2-line"></i>
-        
-    </div>
-    </div>
-    <div id="container">
-        <div id="details">
-            <div id="hima">
-                <p id="Time"></p>
-                <p id="day"></p>
-                <p id="status-run">Class running</p>
-                <p id="running_class"></p>
-                <p id="location"></p>
+        <div id="container">
+            <div id="details">
+                <div id="hima">
+                    <p id="Time"></p>
+                    <p id="day"></p>
+                    <p id="status-run">Class running</p>
+                    <p id="running_class"></p>
+                    <p id="location"></p>
+                </div>
+                <div id="attendance">
+                    <canvas id="present"></canvas>
+                </div>
             </div>
-            <div id="attendance">
-                <canvas id="present"></canvas>
+            <div id="graph">
+                <canvas id="myChart"></canvas>
             </div>
+            <div id="validate">
+                <div id="button" onclick="markattendence()" >Mark your Attendance</div>
+            </div>
+            <div id="timetablefortoday"></div>
         </div>
-        <div id="graph">
-            <canvas id="myChart"></canvas>
-        </div>
-        <div id="validate">
-            <div id="button" onclick="markattendence()" >Mark your Attendance</div>
-        </div>
-        <div id="timetablefortoday"></div>
-    </div>
-    <div id="side-menu">
-        <div id="menu">
-            
-            <div id="logout">
-                <i class="ri-logout-box-r-line"></i>
-                <p>Logout</p>
+        <div id="side-menu">
+            <div id="menu">
+                
+                <div id="logout">
+                    <i class="ri-logout-box-r-line"></i>
+                    <p>Logout</p>
+                </div>
             </div>
         </div>
     </div>
