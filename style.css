@@ -8,7 +8,8 @@ body{
     height: 100vh;
     width: 100vw;
     position: relative;
-    background: url("https://images.unsplash.com/photo-1732139594992-d1da351d5a25?q=80&w=1611&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/cover;
+    background: linear-gradient(45deg,white,#50C878);
+    /* background: url("https://images.unsplash.com/photo-1732139594992-d1da351d5a25?q=80&w=1611&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/cover; */
 }
 
 #profile{
@@ -19,9 +20,9 @@ body{
     height: 70px;
     z-index: 999;
     font-size: medium;
-    color: #fff;
+    color: #000;
     border-bottom: .5px solid #dadada63;
-    background: #ffffff10;
+    background: #00000010;
     backdrop-filter: blur(10px);
     padding: 10px 20px;
 
@@ -77,7 +78,7 @@ body{
         height: 90%;
         border-radius: 50%;
         object-fit: cover;
-        filter: drop-shadow(0 0 23px #ffffff7a);
+        filter: drop-shadow(0 0 23px #0000007a);
         transition: all 0.3s ease-in-out;
         &:hover{
             transform: scale(1.1);
@@ -90,25 +91,61 @@ body{
     margin: auto;
     padding: 10px;
 }
-#attendance{
+#details{
+    color: #000;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
-    padding: 5px;
-    color: #fff;
+    gap: 5px;
+    justify-content: center;
+    padding: 20px;
     border-radius: 24px;
-    background: #ffffff10;
-    backdrop-filter: blur(10px);
+    background: #00000010;
+    backdrop-filter: blur(20px);
     border: .5px solid #dadada63;
+    margin: 20px auto;
+    width: 100%;
+    #hima{
+        width: 300px;
+    }
+    #status-run{
+        padding-top: 10px;
+        font-size: .7rem;
+        opacity: .6;
+        font-weight: 300;
+        filter: drop-shadow(0 0 5px #000);
+    }
+    #Time,#day,#running_class{
+        filter: drop-shadow(0 0 5px #000000);
+        opacity: .8;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    #running_class{
+        width: 50%;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #00ff9d;
+    }
+        #running_class::before{
+            content: '';
+            font-size: .7rem;
+            font-weight: 300;
+            color: #000;
+        }
+    }
+#attendance{
+    width: 150px;
+    z-index: 0;
+    position: relative;
+    right: -50px;
     #present{
         margin: auto;
-        width:80%;
-        max-width:600px;
-        filter: drop-shadow(0 0 23px #ffffff7a);
+        filter: drop-shadow(0 0 23px #0000007a);
     }
 }
 #myChart{
-    background: #ffffff10;
+    background: #00000010;
     backdrop-filter: blur(10px);
     border-radius: 24px;
     border: 1px solid #dadada63;
@@ -163,46 +200,7 @@ body{
         filter: blur(1.5rem);
     }
 }   
-#details{
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    justify-content: center;
-    padding: 20px;
-    border-radius: 24px;
-    background: #ffffff10;
-    backdrop-filter: blur(20px);
-    border: .5px solid #dadada63;
-    margin: 20px auto;
-    width: 100%;
-    #status-run{
-        padding-top: 10px;
-        font-size: .7rem;
-        opacity: .6;
-        font-weight: 300;
-        filter: drop-shadow(0 0 5px #fff);
-    }
-    #Time,#day,#running_class{
-        filter: drop-shadow(0 0 5px #000000);
-        opacity: .8;
-        font-size: 1rem;
-        font-weight: 600;
-    }
-    #running_class{
-        width: 50%;
-        font-size: 1rem;
-        font-weight: 500;
-        color: #00ff9d;
-    }
-        #running_class::before{
-            content: '';
-            font-size: .7rem;
-            font-weight: 300;
-            color: #fff;
-        }
-    }
+
 #side-menu{
     position: absolute;
     top: 0;
@@ -230,7 +228,7 @@ body{
     border: .5px solid #dadada63;
     margin-top: 20px;
     width: 100%;
-    color: #fff;
+    color: #000;
     h3{
         color: #07e48f;
         font-weight: 300;
@@ -248,7 +246,7 @@ body{
         margin: 5px;
         font-size: .8rem;
         font-weight: 400;
-        color: #fff;
+        color: #000;
         text-align: center;
         border-radius: 10px;
         background: #0000002c;

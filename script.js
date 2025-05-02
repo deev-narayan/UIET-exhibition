@@ -20,7 +20,7 @@ const xValues = ["Present", "Absent"];
   ];
 
   const chart = new Chart("present", {
-    type: "doughnut",
+    type: "pie",
     data: {
       labels: xValues,
       datasets: [{
@@ -31,7 +31,10 @@ const xValues = ["Present", "Absent"];
       }]
     },
     options: {
-      cutoutPercentage: 70 // Adjusts the thickness of the doughnut
+      cutoutPercentage: 70 ,
+      legend: {
+        display: false
+      }
     }
   });
 
@@ -76,53 +79,52 @@ const xValues = ["Present", "Absent"];
   });
 
   //for date and time
-
   const timetable = {
     "Monday": {
-      "09:30": ["MNC-101", "UIET-002"],
-      "10:30": ["BS-102 P G1 (RS)", "ES-101 P G2 (SS)", "ES-102 P G3", "ES-103 P G4"],
-      "12:30": ["HSMC-101"],
-      "13:30": ["Lunch"],
-      "14:30": ["BS-102"],
-      "15:30": ["BS-201"],
-      "16:30": ["BS-102 T (AK) (G3+G4)", "Library (G1+G2)"]
+      "09:30-10:30": ["MNC-101", "UIET-002"],
+      "10:30-12:30": ["BS-102 P G1 (RS)", "ES-101 P G2 (SS)", "ES-102 P G3", "ES-103 P G4"],
+      "12:30-13:30": ["HSMC-101"],
+      "13:30-14:30": ["Lunch"],
+      "14:30-15:30": ["BS-102"],
+      "15:30-16:30": ["BS-201"],
+      "16:30-17:30": ["BS-102 T (AK) (G3+G4)", "Library (G1+G2)"]
     },
     "Tuesday": {
-      "09:30": ["MNC-101", "UIET-002"],
-      "10:30": ["HSMC-101"],
-      "11:30": ["BS-102 P G2 (RS)", "ES-101 P G1 (SS)", "ES-102 P G4", "ES-103 P G3"],
-      "13:30": ["Lunch"],
-      "14:30": ["BS-102"],
-      "15:30": ["BS-201"],
-      "16:30": ["ES-101"]
+      "09:30-10:30": ["MNC-101", "UIET-002"],
+      "10:30-11:30": ["HSMC-101"],
+      "11:30-13:30": ["BS-102 P G2 (RS)", "ES-101 P G1 (SS)", "ES-102 P G4", "ES-103 P G3"],
+      "13:30-14:30": ["Lunch"],
+      "14:30-15:30": ["BS-102"],
+      "15:30-16:30": ["BS-201"],
+      "16:30-17:30": ["ES-101"]
     },
     "Wednesday": {
-      "09:30": ["BS-201", "UIET-002"],
-      "10:30": ["HSMC-101"],
-      "11:30": ["BS-102 P G3 (AK)", "ES-101 P G4", "ES-102 P G2", "ES-103 P G1"],
-      "13:30": ["Lunch"],
-      "14:30": ["CC-101"],
-      "15:30": ["ES-101"],
-      "16:30": ["ES-101 T (G3+G4)", "Library (G1+G2)"]
+      "09:30-10:30": ["BS-201", "UIET-002"],
+      "10:30-11:30": ["HSMC-101"],
+      "11:30-13:30": ["BS-102 P G3 (AK)", "ES-101 P G4", "ES-102 P G2", "ES-103 P G1"],
+      "13:30-14:30": ["Lunch"],
+      "14:30-15:30": ["CC-101"],
+      "15:30-16:30": ["ES-101"],
+      "16:30-17:30": ["ES-101 T (G3+G4)", "Library (G1+G2)"]
     },
     "Thursday": {
-      "09:30": ["BS-102 T (G1+G2) (AK)", "Library (G3+G4)", "UIET-002"],
-      "10:30": ["HSMC-101"],
-      "11:30": ["ES-101"],
-      "12:30": ["ES-101 T (G1+G2)", "Library (G3+G4)"],
-      "13:30": ["Lunch"],
-      "14:30": ["BS-201"],
-      "15:30": ["ES-101"],
-      "16:30": ["BS-201 T (G3+G4)", "Library (G1+G2)"]
+      "09:30-10:30": ["BS-102 T (G1+G2) (AK)", "Library (G3+G4)", "UIET-002"],
+      "10:30-11:30": ["HSMC-101"],
+      "11:30-12:30": ["ES-101"],
+      "12:30-13:30": ["ES-101 T (G1+G2)", "Library (G3+G4)"],
+      "13:30-14:30": ["Lunch"],
+      "14:30-15:30": ["BS-201"],
+      "15:30-16:30": ["ES-101"],
+      "16:30-17:30": ["BS-201 T (G3+G4)", "Library (G1+G2)"]
     },
     "Friday": {
-      "09:30": ["BS-102 P G4 (AK)", "ES-101 P G3", "ES-102 P G1", "ES-103 P G2"],
-      "11:30": ["CC-101"],
-      "12:30": ["BS-102"],
-      "13:30": ["Lunch"],
-      "14:30": ["BS-102"],
-      "15:30": ["BS-201 T (G1+G2)", "Library (G3+G4)"],
-      "16:30": ["Library"]
+      "09:30-11:30": ["BS-102 P G4 (AK)", "ES-101 P G3", "ES-102 P G1", "ES-103 P G2"],
+      "11:30-12:30": ["CC-101"],
+      "12:30-13:30": ["BS-102"],
+      "13:30-14:30": ["Lunch"],
+      "14:30-15:30": ["BS-102"],
+      "15:30-16:30": ["BS-201 T (G1+G2)", "Library (G3+G4)"],
+      "16:30-17:30": ["Library"]
     }
   };
 
@@ -183,7 +185,14 @@ const xValues = ["Present", "Absent"];
       if (!todaySchedule) return [];
       const times = Object.keys(todaySchedule);
       for (let i = 0; i < times.length; i++) {
-        if (time24 >= times[i] && (i === times.length - 1 || time24 < times[i + 1])) {
+        const [startHour, startMinute] = times[i].split("-")[0].split(":").map(Number);
+        const [endHour, endMinute] = times[i].split("-")[1].split(":").map(Number);
+        const [currentHour, currentMinute] = time24.split(":").map(Number);
+
+        const isAfterStart = currentHour > startHour || (currentHour === startHour && currentMinute >= startMinute);
+        const isBeforeEnd = currentHour < endHour || (currentHour === endHour && currentMinute < endMinute);
+
+        if (isAfterStart && isBeforeEnd) {
           return todaySchedule[times[i]];
         }
       }
