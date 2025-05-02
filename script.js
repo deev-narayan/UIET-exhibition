@@ -125,7 +125,7 @@ const xValues = ["Present", "Absent"];
       "16:30": ["Library"]
     }
   };
-  
+
   function generateTimetableForDay(day) {
     const daySchedule = timetable[day];
     if (!daySchedule) {
@@ -179,16 +179,15 @@ const xValues = ["Present", "Absent"];
 
     let runningClass = document.querySelector("#running_class");
     function getClassAtTime(day, time24) {
-      var todaySchedule = timetable[day];
+      const todaySchedule = timetable[day];
       if (!todaySchedule) return [];
-    }
-    
-    function convertTo24Hour(time) {
-      const [raw, period] = time.match(/(\d{1,2}:\d{2})(AM|PM)/).slice(1, 3);
-      let [hours, minutes] = raw.split(":").map(Number);
-      if (period === "PM" && hours !== 12) hours += 12;
-      if (period === "AM" && hours === 12) hours = 0;
-      return `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}`;
+      const times = Object.keys(todaySchedule);
+      for (let i = 0; i < times.length; i++) {
+        if (time24 >= times[i] && (i === times.length - 1 || time24 < times[i + 1])) {
+          return todaySchedule[times[i]];
+        }
+      }
+      return [];
     }
     
     // Example DOM interaction
