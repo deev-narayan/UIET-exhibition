@@ -9,8 +9,6 @@ body{
     width: 100vw;
     overflow-x: hidden;
     background: linear-gradient(45deg,#fff,#50C878);
-    /* background: url("https://images.unsplash.com/photo-1617957718583-e83389e2b317?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/cover; */
-    /* background: url("https://images.unsplash.com/photo-1732139594992-d1da351d5a25?q=80&w=1611&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/cover; */
 }
 #slide{
     position: absolute;
