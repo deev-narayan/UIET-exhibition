@@ -1,17 +1,3 @@
-// import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCB2J_xHrgOMkvjlRdgOBv5kCWdNJqR5cY",
-//   authDomain: "uiet-attendance-management.firebaseapp.com",
-//   projectId: "uiet-attendance-management",
-//   storageBucket: "uiet-attendance-management.firebasestorage.app",
-//   messagingSenderId: "468208085154",
-//   appId: "1:468208085154:web:b3f8f1a2723f53cf480ffb",
-//   measurementId: "G-X2B5JKQ0QL"
-// };
-
-// const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
 
 
 let menu = document.querySelector("#hamburgicon");
