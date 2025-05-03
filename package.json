@@ -1,5 +1,27 @@
 {
   "dependencies": {
-    "firebase": "^11.6.1"
-  }
+    "csv-parser": "^3.2.0",
+    "firebase": "^11.6.1",
+    "firebase-admin": "^13.3.0",
+    "fs": "^0.0.1-security"
+  },
+  "name": "uiet-exhibition",
+  "description": "Topic : Student Attendance Management System Project ## UIET Exhibition Screenshot",
+  "version": "1.0.0",
+  "main": "script.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deev-narayan/UIET-exhibition.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deev-narayan/UIET-exhibition/issues"
+  },
+  "homepage": "https://github.com/deev-narayan/UIET-exhibition#readme"
 }
