@@ -1,24 +1,17 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// import { initializeApp } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCB2J_xHrgOMkvjlRdgOBv5kCWdNJqR5cY",
+//   authDomain: "uiet-attendance-management.firebaseapp.com",
+//   projectId: "uiet-attendance-management",
+//   storageBucket: "uiet-attendance-management.firebasestorage.app",
+//   messagingSenderId: "468208085154",
+//   appId: "1:468208085154:web:b3f8f1a2723f53cf480ffb",
+//   measurementId: "G-X2B5JKQ0QL"
+// };
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCB2J_xHrgOMkvjlRdgOBv5kCWdNJqR5cY",
-  authDomain: "uiet-attendance-management.firebaseapp.com",
-  projectId: "uiet-attendance-management",
-  storageBucket: "uiet-attendance-management.firebasestorage.app",
-  messagingSenderId: "468208085154",
-  appId: "1:468208085154:web:b3f8f1a2723f53cf480ffb",
-  measurementId: "G-X2B5JKQ0QL"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
 
 
 let menu = document.querySelector("#hamburgicon");
