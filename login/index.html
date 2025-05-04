@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login for attendance marking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        <p>Babasaheb Bhimrao Ambedkar University</p>
+    </div>
+    <div id="first_page">
+        <div id="container">
+            <div id="img">
+                <img src="https://bbau.samarth.ac.in/uploads/uims/8bc34ea38ee60e4ee9c2c467f95b2aa7dcc244c545f4fa54238bd50ce2468c341_1573196982_85199826_logo.png" alt="Logo">
+            </div>
+            <p>Student Attendance Portal</p>
+            <div id="form">
+                <h3>Sign in</h3>
+                <form action="/backend" method="post">
+                    <label for="roll_no">Roll No.</label>
+                    <input type="text" class="roll_no" id="roll_no">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password">
+                    <div>
+                        <button type="submit">Login</button>
+                        <button id="new_registration">New registration</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
