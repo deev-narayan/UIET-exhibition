@@ -280,6 +280,41 @@ body {
         border: .5px solid #dadada63;
     }
 }
+#notification{
+    position: absolute;
+    top: 70px;
+    right: 0px;
+    z-index: 100;
+    .notif{
+     
+        padding: 2px 4px;
+        margin: 2px;
+        background-color: #07e48f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        i{
+           box-sizing: border-box;
+            padding: 0px 2px 2px 0px;
+        }
+        span{
+            font-size: 0.8rem;
+            margin-right: 10px;
+            padding: 1px 4px 1px 1px;
+        }
+    }
+    .errornotif{
+        background-color: #e40707;
+    }
+    .successnotif{
+        background-color: #07e48f;
+    }
+    .warningnotif{
+        background-color: #d5e407;
+        
+    }
+}
 @keyframes spin {
     0%{
         --angle: 0deg;
