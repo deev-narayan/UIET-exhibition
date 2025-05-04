@@ -147,11 +147,23 @@ function generateTimetableForDay() {
   timetableHTML += `<tr><th>Timing</th><th>Classes</th></tr>`;
   console.log(daySchedule);
   const timeSlot = ["9:30", "10:30", "11:30", "12:30", "13:30", "14:30", "15:30", "16:30", "17:30"]
-
+  var sameindex ;
   for (let index = 0; index < timeSlot.length - 1; index++) {
 
+    if (daySchedule[index].join(", ") === daySchedule[index + 1]?.join(", ")) {
+      timetableHTML += `<tr><td>${timeSlot[index]}-${timeSlot[index + 1]} </td><td rowspan="2">${daySchedule[index].join(", ")}</td></tr>`;
+      sameindex=index+1;
+      continue; 
+    }
+    if (index === sameindex) {
+      timetableHTML += `<tr><td>${timeSlot[index]}-${timeSlot[index + 1]} </td></tr>`;
+      continue; 
+    }
+
+  
     timetableHTML += `<tr><td>${timeSlot[index]}-${timeSlot[index + 1]} </td><td>${daySchedule[index].join(", ")}</td></tr>`;
   }
+
 
 
   timetableHTML += `</table>`;
@@ -179,8 +191,9 @@ function getLocation() {
     navigator.geolocation.watchPosition(gotlocation, errorgettinglocation);
   }
 }
+var userlocation;
 function gotlocation(position) {
-  console.log(position.coords.latitude, position.coords.longitude)
+  userlocation = ` ${position.coords.latitude}, ${position.coords.longitude} `
 }
 function errorgettinglocation(error) {
   switch (error.code) {
@@ -213,12 +226,20 @@ function notification(text, type) {
     cont.innerHTML += ` <span class="warningnotif notif"><i class="ri-error-warning-fill"></i><span>${text}</span><i class="ri-close-fill" onclick="removethis(this)"></i></span>`
   }
 }
+function gettimenow() {
+  var notime = new Date();
+  var time1 = notime.getHours()+ ":" + notime.getMinutes() + ":" + notime.getSeconds()
 
-
+  document.getElementById("Time").innerHTML = notime.getHours() > 12 ? time1+" "+"PM" : time1+" " +"AM";
+  const weeks = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var nowday = weeks[notime.getDay()];
+  document.getElementById("day").innerHTML = nowday
+}
 
 
 
 function markattendence() {
+  var nowtime =new Date().toISOString()
   getLocation()
   fetch('http://172.21.5.77:8888/markattendence', {
     method: 'POST',
@@ -227,8 +248,8 @@ function markattendence() {
     },
     body: JSON.stringify({
       studentId: '12345',
-      status: 'present',
-      timestamp: new Date().toISOString()
+      location: userlocation,
+      timestamp: nowtime,
     })
   })
   .then(response => response.json())
@@ -243,6 +264,7 @@ function markattendence() {
 
 
 
+setInterval(gettimenow, 1000);
 markattendence();
 generateTimetable()
 generateTimetableForDay()
