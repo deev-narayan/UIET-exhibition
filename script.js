@@ -191,9 +191,12 @@ function getLocation() {
     navigator.geolocation.watchPosition(gotlocation, errorgettinglocation);
   }
 }
-var userlocation;
+var userlocationlong ;
+var userlocationlat ;
 function gotlocation(position) {
-  userlocation = ` ${position.coords.latitude}, ${position.coords.longitude} `
+  userlocationlat = position.coords.latitude
+  userlocationlong = position.coords.longitude
+  document.getElementById("locationuser").innerHTML = `Latitude: ${userlocationlat} Longitude: ${userlocationlong}`;
 }
 function errorgettinglocation(error) {
   switch (error.code) {
@@ -248,14 +251,21 @@ function markattendence() {
     },
     body: JSON.stringify({
       studentId: '12345',
-      location: userlocation,
+      locationlat: userlocationlat,
+      locationlong: userlocationlong,
       timestamp: nowtime,
     })
   })
   .then(response => response.json())
   .then(data => {
   console.log(data);
-    notification('Attendance marked successfully!', 'success');
+
+    if (data.success) {
+      notification(data.message, 'success');
+    } else {
+      notification(data.message, 'error');
+    }
+   
   })
   .catch(error => {
     notification('Failed to mark attendance.', 'error');
@@ -263,7 +273,7 @@ function markattendence() {
 }
 
 
-
+setInterval(getLocation, 1000);
 setInterval(gettimenow, 1000);
 markattendence();
 generateTimetable()
