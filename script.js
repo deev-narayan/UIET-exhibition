@@ -1,5 +1,3 @@
-
-
 let menu = document.querySelector("#hamburgicon");
 let rutein = document.querySelector("#timetablefortoday");
 menu.addEventListener("click", () => {
@@ -197,6 +195,10 @@ function gotlocation(position) {
   userlocationlat = position.coords.latitude
   userlocationlong = position.coords.longitude
   document.getElementById("locationuser").innerHTML = `Latitude: ${userlocationlat} Longitude: ${userlocationlong}`;
+  console.log("Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude);
+
+    return userlocationlat, userlocationlong;
 }
 function errorgettinglocation(error) {
   switch (error.code) {
@@ -250,7 +252,7 @@ function markattendence() {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      studentId: '12345',
+      studentId: 240904,
       locationlat: userlocationlat,
       locationlong: userlocationlong,
       timestamp: nowtime,
@@ -275,6 +277,5 @@ function markattendence() {
 
 setInterval(getLocation, 1000);
 setInterval(gettimenow, 1000);
-markattendence();
 generateTimetable()
 generateTimetableForDay()
