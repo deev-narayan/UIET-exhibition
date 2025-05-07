@@ -281,6 +281,46 @@ body {
         border: .5px solid #dadada63;
     }
 }
+#examMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    border-radius: 20px;
+    border-bottom: .5px solid #dadada63;
+    background: #00000010;
+    backdrop-filter: blur(20px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 24px;
+    width: 250px;
+    h3{
+        font-weight: 400;
+        font-size: .8rem;
+        filter: drop-shadow(0 0 23px #000000);
+        opacity: .6;
+    }
+    th{
+        font-size: .6rem;
+        opacity: .5;
+        font-weight: 300;
+    }
+    td{
+        padding: 5px;
+        margin: 5px;
+        font-size: .7rem;
+        font-weight: 600;
+        opacity: .8;
+        text-align: center;
+        border-radius: 10px;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        border: .5px solid #dadada63;
+    }
+}
 #locationuser{
     width: 100%;
     font-size: .8rem;

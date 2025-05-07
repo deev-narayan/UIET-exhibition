@@ -1,5 +1,6 @@
 let menu = document.querySelector("#hamburgicon");
 let rutein = document.querySelector("#timetablefortoday");
+let examMenu = document.querySelector("#examMenu");
 menu.addEventListener("click", () => {
   if (document.querySelector("#side-menu").style.display === "flex") {
     document.querySelector("#side-menu").style.display = "none";
@@ -131,6 +132,28 @@ const timetable = {
     ["Library"]
   ]
 };
+
+function generateExamTimetable() {
+  const examTimetable = {
+    "17/05/2025": "VAC-201",
+    "19/05/2025": "ES-101",
+    "21/05/2025": "BS-202",
+    "23/05/2025": "BS-102",
+    "27/05/2025": "HSMC",
+    "29/05/2025": "MNC"
+  };
+  let examHTML = `<h3>Examination Timetable</h3><table>`;
+  examHTML += `<tr><th>Timing</th><th>Subject</th></tr>`;
+
+  for (const [day, subject] of Object.entries(examTimetable)) {
+    examHTML += `<tr><td>${day}</td>       <td>${subject}</td></tr>`;
+  }
+
+  examHTML += `</table>`;
+  examMenu.innerHTML = examHTML;
+}
+
+generateExamTimetable();
 
 function generateTimetableForDay() {
   const todaysdate = new Date;
